@@ -1,7 +1,7 @@
-using System.ComponentModel;
-using System.Windows.Input;
 using DrivingAcademy.Data;
 using MySqlConnector;
+using System.ComponentModel;
+using System.Windows.Input;
 
 namespace DrivingAcademy.ViewModels;
 

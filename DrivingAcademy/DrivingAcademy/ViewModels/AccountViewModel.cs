@@ -1,8 +1,8 @@
-using System.Security.Cryptography;
-using System.Text;
 using DrivingAcademy.Data;
 using Microsoft.EntityFrameworkCore;
 using MySqlConnector;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace DrivingAcademy.ViewModels;
 
@@ -49,7 +49,7 @@ internal sealed class AccountViewModel
             FROM users u JOIN roles r ON r.id = u.role_id WHERE u.username = {Username.Trim()}
             """).SingleOrDefaultAsync();
         if (user == null) throw new ArgumentException("Неверный логин или пароль.");
-        // Старые записи из исходной схемы содержали не более 20 символов.
+
         if (user.StoredPassword.Length <= 20)
         {
             if (user.StoredPassword != password) throw new ArgumentException("Неверный логин или пароль.");

@@ -1,6 +1,6 @@
-using System.Windows;
 using DrivingAcademy.ViewModels;
 using MySqlConnector;
+using System.Windows;
 
 namespace DrivingAcademy;
 
@@ -98,7 +98,7 @@ public partial class MainWindow
         await model.LoadAsync();
         ResultsPanel.DataContext = null;
         ResultsPanel.DataContext = model;
-            SetResultFilters(model);
+        SetResultFilters(model);
         if (DataContext is LeaderboardViewModel board) await board.ShowResultsAsync();
     }
 
@@ -107,8 +107,8 @@ public partial class MainWindow
         if (ResultsPanel.DataContext is not ResultsViewModel model) return;
         await RunResultsAsync(async () =>
         {
-            await model.SaveAsync(edited,PilotBox.SelectedItem as Choice,CircuitBox.SelectedItem is CircuitEntry layout ? new Choice(layout.Id, layout.Name) : null,
-                CarBox.SelectedItem as Choice,LapInput.Text,DateInput.Text);
+            await model.SaveAsync(edited, PilotBox.SelectedItem as Choice, CircuitBox.SelectedItem is CircuitEntry layout ? new Choice(layout.Id, layout.Name) : null,
+                CarBox.SelectedItem as Choice, LapInput.Text, DateInput.Text);
             await ReloadResultsAsync(model);
             ResultStatus.Text = "Результат сохранён.";
         });
@@ -118,8 +118,8 @@ public partial class MainWindow
     {
         if (ResultsPanel.DataContext is not ResultsViewModel model) return;
         if (((sender as FrameworkElement)?.DataContext ?? ResultsGrid.SelectedItem) is not ResultEntry entry) { ResultStatus.Text = "Выберите заезд в таблице."; return; }
-        if (MessageBox.Show(this,$"Удалить заезд: {entry.Pilot}, {entry.Circuit}, {entry.Time}?",
-            "Удаление результата",MessageBoxButton.YesNo,MessageBoxImage.Question,MessageBoxResult.No) != MessageBoxResult.Yes) return;
+        if (MessageBox.Show(this, $"Удалить заезд: {entry.Pilot}, {entry.Circuit}, {entry.Time}?",
+            "Удаление результата", MessageBoxButton.YesNo, MessageBoxImage.Question, MessageBoxResult.No) != MessageBoxResult.Yes) return;
         await RunResultsAsync(async () =>
         {
             await model.DeleteAsync(entry);

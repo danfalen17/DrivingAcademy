@@ -1,5 +1,5 @@
-using System.Windows;
 using DrivingAcademy.ViewModels;
+using System.Windows;
 
 namespace DrivingAcademy;
 

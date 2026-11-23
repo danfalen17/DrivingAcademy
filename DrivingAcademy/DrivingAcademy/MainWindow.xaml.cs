@@ -1,7 +1,7 @@
-using System.Windows;
 using DrivingAcademy.Data;
 using DrivingAcademy.ViewModels;
 using MySqlConnector;
+using System.Windows;
 
 namespace DrivingAcademy;
 
@@ -25,8 +25,8 @@ public partial class MainWindow : Window
         catch (Exception error) when (error is MySqlException or ArgumentException or InvalidOperationException)
         {
             string message = error is MySqlException mysql
-                ? $"Не удалось прочитать трассы из MySQL (код {mysql.Number}). Проверьте доступ к базе driving_academy и наличие таблицы tracks."
-                : "Проверьте переменную Windows DRIVING_ACADEMY_CONNECTION со строкой подключения к MySQL.";
+                ? $"Не удалось прочитать трассы из MySQL (код {mysql.Number}). Проверьте доступ к базе данных"
+                : "Проверьте строку подключения к базе данных";
             MessageBox.Show(this, message, "Подключение к базе");
         }
     }

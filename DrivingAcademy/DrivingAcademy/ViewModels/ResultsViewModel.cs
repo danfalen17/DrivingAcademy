@@ -46,9 +46,9 @@ internal class ResultsViewModel
             throw new ArgumentException("Выберите пилота, конфигурацию и автомобиль.");
         var match = Regex.Match(time.Trim(), @"^([0-9]{1,5}):([0-5][0-9])\.([0-9]{3})$");
         if (!match.Success) throw new ArgumentException("Введите время круга в формате 1:31.300.");
-        long ms = long.Parse(match.Groups[1].Value)*60000 + int.Parse(match.Groups[2].Value)*1000 + int.Parse(match.Groups[3].Value);
+        long ms = long.Parse(match.Groups[1].Value) * 60000 + int.Parse(match.Groups[2].Value) * 1000 + int.Parse(match.Groups[3].Value);
         if (ms is <= 0 or > uint.MaxValue) throw new ArgumentException("Время круга вне допустимого диапазона.");
-        if (!DateTime.TryParseExact(date.Trim(),"dd.MM.yyyy HH:mm:ss",CultureInfo.InvariantCulture,DateTimeStyles.None,out var driven) || driven.Year < 1000)
+        if (!DateTime.TryParseExact(date.Trim(), "dd.MM.yyyy HH:mm:ss", CultureInfo.InvariantCulture, DateTimeStyles.None, out var driven) || driven.Year < 1000)
             throw new ArgumentException("Введите дату и время в формате дд.ММ.гггг ЧЧ:мм:сс.");
         using var db = new AcademyContext();
         if (original == null)

@@ -9,7 +9,7 @@ internal sealed class AcademyContext : DbContext
         var connection = Environment.GetEnvironmentVariable("DRIVING_ACADEMY_CONNECTION")
             ?? Environment.GetEnvironmentVariable("DRIVING_ACADEMY_CONNECTION", EnvironmentVariableTarget.User);
         if (string.IsNullOrWhiteSpace(connection))
-            throw new InvalidOperationException("Задайте переменную Windows DRIVING_ACADEMY_CONNECTION со строкой подключения к MySQL.");
+            throw new InvalidOperationException("Задайте переменную со строкой подключения к MySQL.");
 
         options.UseMySql(connection, new MySqlServerVersion(new Version(8, 0)));
     }

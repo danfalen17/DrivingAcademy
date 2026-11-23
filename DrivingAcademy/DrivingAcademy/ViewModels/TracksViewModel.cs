@@ -8,26 +8,35 @@ internal sealed class TracksViewModel
 {
     public TracksViewModel(PilotSession session)
     {
-        if (session.RoleId is not (2 or 3)) throw new UnauthorizedAccessException();
+        if (session.RoleId is not (2 or 3))
+            throw new UnauthorizedAccessException();
     }
 
     public async Task<Choice[]> LoadAsync()
     {
         using var db = new AcademyContext();
-        return await db.Database.SqlQuery<Choice>($"SELECT id, name AS Label FROM tracks ORDER BY name").ToArrayAsync();
+        return await db
+            .Database.SqlQuery<Choice>($"SELECT id, name AS Label FROM tracks ORDER BY name")
+            .ToArrayAsync();
     }
 
     public async Task SaveAsync(Choice? original, string name)
     {
         name = name.Trim();
-        if (name.Length is 0 or > 30) throw new ArgumentException("Введите название длиной от 1 до 30 символов.");
+        if (name.Length is 0 or > 30)
+            throw new ArgumentException("Введите название длиной от 1 до 30 символов.");
+
         using var db = new AcademyContext();
         try
         {
             if (original == null)
                 await db.Database.ExecuteSqlAsync($"INSERT INTO tracks(name) VALUES({name})");
             else
-                CheckChanged(await db.Database.ExecuteSqlAsync($"UPDATE tracks SET name={name} WHERE id={original.Id} AND BINARY name={original.Label}"));
+                CheckChanged(
+                    await db.Database.ExecuteSqlAsync(
+                        $"UPDATE tracks SET name={name} WHERE id={original.Id} AND BINARY name={original.Label}"
+                    )
+                );
         }
         catch (MySqlException error) when (error.Number == 1062)
         {
@@ -40,7 +49,11 @@ internal sealed class TracksViewModel
         using var db = new AcademyContext();
         try
         {
-            CheckChanged(await db.Database.ExecuteSqlAsync($"DELETE FROM tracks WHERE id={original.Id} AND BINARY name={original.Label}"));
+            CheckChanged(
+                await db.Database.ExecuteSqlAsync(
+                    $"DELETE FROM tracks WHERE id={original.Id} AND BINARY name={original.Label}"
+                )
+            );
         }
         catch (MySqlException error) when (error.Number == 1451)
         {
@@ -50,6 +63,9 @@ internal sealed class TracksViewModel
 
     private static void CheckChanged(int count)
     {
-        if (count == 0) throw new ArgumentException("Трассу уже изменили или удалили. Откройте справочник заново.");
+        if (count == 0)
+            throw new ArgumentException(
+                "Трассу уже изменили или удалили. Откройте справочник заново."
+            );
     }
 }

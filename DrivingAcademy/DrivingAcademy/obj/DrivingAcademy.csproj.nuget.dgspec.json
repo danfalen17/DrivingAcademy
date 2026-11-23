@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Temp\\ispp31\\DrivingAcademy\\DrivingAcademy\\DrivingAcademy\\DrivingAcademy.csproj": {}
+    "D:\\CourseProject\\DrivingAcademy\\DrivingAcademy\\DrivingAcademy.csproj": {}
   },
   "projects": {
-    "C:\\Temp\\ispp31\\DrivingAcademy\\DrivingAcademy\\DrivingAcademy\\DrivingAcademy.csproj": {
+    "D:\\CourseProject\\DrivingAcademy\\DrivingAcademy\\DrivingAcademy.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Temp\\ispp31\\DrivingAcademy\\DrivingAcademy\\DrivingAcademy\\DrivingAcademy.csproj",
+        "projectUniqueName": "D:\\CourseProject\\DrivingAcademy\\DrivingAcademy\\DrivingAcademy.csproj",
         "projectName": "DrivingAcademy",
-        "projectPath": "C:\\Temp\\ispp31\\DrivingAcademy\\DrivingAcademy\\DrivingAcademy\\DrivingAcademy.csproj",
-        "packagesPath": "C:\\Users\\0109-04\\.nuget\\packages\\",
-        "outputPath": "C:\\Temp\\ispp31\\DrivingAcademy\\DrivingAcademy\\DrivingAcademy\\obj\\",
+        "projectPath": "D:\\CourseProject\\DrivingAcademy\\DrivingAcademy\\DrivingAcademy.csproj",
+        "packagesPath": "C:\\Users\\Falen\\.nuget\\packages\\",
+        "outputPath": "D:\\CourseProject\\DrivingAcademy\\DrivingAcademy\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "D:\\VisualStudioSDK\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\0109-04\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Falen\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -46,7 +46,7 @@
           "auditLevel": "low",
           "auditMode": "all"
         },
-        "SdkAnalysisLevel": "10.0.400"
+        "SdkAnalysisLevel": "11.0.100"
       },
       "frameworks": {
         "net10.0-windows": {
@@ -81,7 +81,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.403/PortableRuntimeIdentifierGraph.json",
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\11.0.100/PortableRuntimeIdentifierGraph.json",
           "packagesToPrune": {
             "Microsoft.CSharp": "(,4.7.32767]",
             "Microsoft.VisualBasic": "(,10.4.32767]",

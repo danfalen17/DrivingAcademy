@@ -1,5 +1,5 @@
-using DrivingAcademy.ViewModels;
 using System.Windows;
+using DrivingAcademy.ViewModels;
 
 namespace DrivingAcademy;
 
@@ -9,11 +9,17 @@ public partial class MainWindow
 
     private async void Cars_Click(object sender, RoutedEventArgs e)
     {
-        if (session?.RoleId is not (2 or 3)) return;
+        if (session?.RoleId is not (2 or 3))
+            return;
         UsersPanel.Visibility = Visibility.Collapsed;
-        TrackTools.Visibility = ConfigTools.Visibility = ResultTools.Visibility = Visibility.Collapsed;
+        TrackTools.Visibility =
+            ConfigTools.Visibility =
+            ResultTools.Visibility =
+                Visibility.Collapsed;
+
         CarTools.Visibility = Visibility.Visible;
         CarEditor.Visibility = Visibility.Collapsed;
+
         await RunResultsAsync(async () =>
         {
             var model = new CarsViewModel(session);
@@ -24,16 +30,25 @@ public partial class MainWindow
 
     private void EditCar(object sender, RoutedEventArgs e)
     {
-        editingCar = sender == AddCar ? null : ((sender as FrameworkElement)?.DataContext ?? CarGrid.SelectedItem) as Choice;
-        if (sender != AddCar && editingCar == null) { ResultStatus.Text = "Выберите автомобиль."; return; }
+        editingCar =
+            sender == AddCar
+                ? null
+                : ((sender as FrameworkElement)?.DataContext ?? CarGrid.SelectedItem) as Choice;
+        if (sender != AddCar && editingCar == null)
+        {
+            ResultStatus.Text = "Выберите автомобиль.";
+            return;
+        }
         CarName.Text = editingCar?.Label ?? "";
         CarEditorTitle.Text = editingCar == null ? "Добавить запись" : "Изменить запись";
+
         CarEditor.Visibility = Visibility.Visible;
         ResultStatus.Text = "";
         CarName.Focus();
     }
 
-    private void CancelCar(object sender, RoutedEventArgs e) => CarEditor.Visibility = Visibility.Collapsed;
+    private void CancelCar(object sender, RoutedEventArgs e) =>
+        CarEditor.Visibility = Visibility.Collapsed;
 
     private async Task RefreshCarsAsync(CarsViewModel model, string? oldName, string? newName)
     {
@@ -44,7 +59,8 @@ public partial class MainWindow
 
     private async void SaveCar(object sender, RoutedEventArgs e)
     {
-        if (CarTools.DataContext is not CarsViewModel model) return;
+        if (CarTools.DataContext is not CarsViewModel model)
+            return;
         await RunResultsAsync(async () =>
         {
             var name = CarName.Text.Trim();
@@ -56,10 +72,25 @@ public partial class MainWindow
 
     private async void DeleteCar(object sender, RoutedEventArgs e)
     {
-        if (CarTools.DataContext is not CarsViewModel model) return;
-        if (((sender as FrameworkElement)?.DataContext ?? CarGrid.SelectedItem) is not Choice car) { ResultStatus.Text = "Выберите автомобиль."; return; }
-        if (MessageBox.Show(this, $"Удалить автомобиль «{car.Label}»?", "Удаление автомобиля", MessageBoxButton.YesNo,
-            MessageBoxImage.Question, MessageBoxResult.No) != MessageBoxResult.Yes) return;
+        if (CarTools.DataContext is not CarsViewModel model)
+            return;
+        if (((sender as FrameworkElement)?.DataContext ?? CarGrid.SelectedItem) is not Choice car)
+        {
+            ResultStatus.Text = "Выберите автомобиль.";
+            return;
+        }
+        if (
+            MessageBox.Show(
+                this,
+                $"Удалить автомобиль «{car.Label}»?",
+                "Удаление автомобиля",
+                MessageBoxButton.YesNo,
+                MessageBoxImage.Question,
+                MessageBoxResult.No
+            ) != MessageBoxResult.Yes
+        )
+            return;
+
         await RunResultsAsync(async () =>
         {
             await model.DeleteAsync(car);
@@ -68,8 +99,3 @@ public partial class MainWindow
         });
     }
 }
-
-
-
-
-

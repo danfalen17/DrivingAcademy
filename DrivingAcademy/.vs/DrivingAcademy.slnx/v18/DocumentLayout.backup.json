@@ -3,16 +3,24 @@
   "WorkspaceRootPath": "C:\\Temp\\ispp31\\DrivingAcademy\\DrivingAcademy\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{D8DE46A8-73EC-C85C-C667-4962D692B3FF}|DrivingAcademy\\DrivingAcademy.csproj|c:\\temp\\ispp31\\drivingacademy\\drivingacademy\\drivingacademy\\mainwindow.results.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D8DE46A8-73EC-C85C-C667-4962D692B3FF}|DrivingAcademy\\DrivingAcademy.csproj|solutionrelative:drivingacademy\\mainwindow.results.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8DE46A8-73EC-C85C-C667-4962D692B3FF}|DrivingAcademy\\DrivingAcademy.csproj|c:\\temp\\ispp31\\drivingacademy\\drivingacademy\\drivingacademy\\mainwindow.tracks.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D8DE46A8-73EC-C85C-C667-4962D692B3FF}|DrivingAcademy\\DrivingAcademy.csproj|solutionrelative:drivingacademy\\mainwindow.tracks.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8DE46A8-73EC-C85C-C667-4962D692B3FF}|DrivingAcademy\\DrivingAcademy.csproj|c:\\temp\\ispp31\\drivingacademy\\drivingacademy\\drivingacademy\\mainwindow.users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D8DE46A8-73EC-C85C-C667-4962D692B3FF}|DrivingAcademy\\DrivingAcademy.csproj|solutionrelative:drivingacademy\\mainwindow.users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{D8DE46A8-73EC-C85C-C667-4962D692B3FF}|DrivingAcademy\\DrivingAcademy.csproj|c:\\temp\\ispp31\\drivingacademy\\drivingacademy\\drivingacademy\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D8DE46A8-73EC-C85C-C667-4962D692B3FF}|DrivingAcademy\\DrivingAcademy.csproj|solutionrelative:drivingacademy\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D8DE46A8-73EC-C85C-C667-4962D692B3FF}|DrivingAcademy\\DrivingAcademy.csproj|c:\\temp\\ispp31\\drivingacademy\\drivingacademy\\drivingacademy\\data\\academycontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D8DE46A8-73EC-C85C-C667-4962D692B3FF}|DrivingAcademy\\DrivingAcademy.csproj|solutionrelative:drivingacademy\\data\\academycontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D8DE46A8-73EC-C85C-C667-4962D692B3FF}|DrivingAcademy\\DrivingAcademy.csproj|c:\\temp\\ispp31\\drivingacademy\\drivingacademy\\drivingacademy\\mainwindow.results.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D8DE46A8-73EC-C85C-C667-4962D692B3FF}|DrivingAcademy\\DrivingAcademy.csproj|solutionrelative:drivingacademy\\mainwindow.results.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D8DE46A8-73EC-C85C-C667-4962D692B3FF}|DrivingAcademy\\DrivingAcademy.csproj|c:\\temp\\ispp31\\drivingacademy\\drivingacademy\\drivingacademy\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{D8DE46A8-73EC-C85C-C667-4962D692B3FF}|DrivingAcademy\\DrivingAcademy.csproj|solutionrelative:drivingacademy\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D8DE46A8-73EC-C85C-C667-4962D692B3FF}|DrivingAcademy\\DrivingAcademy.csproj|c:\\temp\\ispp31\\drivingacademy\\drivingacademy\\drivingacademy\\mainwindow.configurations.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -27,8 +35,44 @@
       "RelativeMoniker": "D:0:0:{D8DE46A8-73EC-C85C-C667-4962D692B3FF}|DrivingAcademy\\DrivingAcademy.csproj|solutionrelative:drivingacademy\\assemblyinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D8DE46A8-73EC-C85C-C667-4962D692B3FF}|DrivingAcademy\\DrivingAcademy.csproj|c:\\temp\\ispp31\\drivingacademy\\drivingacademy\\drivingacademy\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{D8DE46A8-73EC-C85C-C667-4962D692B3FF}|DrivingAcademy\\DrivingAcademy.csproj|solutionrelative:drivingacademy\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{D8DE46A8-73EC-C85C-C667-4962D692B3FF}|DrivingAcademy\\DrivingAcademy.csproj|c:\\temp\\ispp31\\drivingacademy\\drivingacademy\\drivingacademy\\viewmodels\\usersviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D8DE46A8-73EC-C85C-C667-4962D692B3FF}|DrivingAcademy\\DrivingAcademy.csproj|solutionrelative:drivingacademy\\viewmodels\\usersviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8DE46A8-73EC-C85C-C667-4962D692B3FF}|DrivingAcademy\\DrivingAcademy.csproj|c:\\temp\\ispp31\\drivingacademy\\drivingacademy\\drivingacademy\\viewmodels\\tracksviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D8DE46A8-73EC-C85C-C667-4962D692B3FF}|DrivingAcademy\\DrivingAcademy.csproj|solutionrelative:drivingacademy\\viewmodels\\tracksviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8DE46A8-73EC-C85C-C667-4962D692B3FF}|DrivingAcademy\\DrivingAcademy.csproj|c:\\temp\\ispp31\\drivingacademy\\drivingacademy\\drivingacademy\\viewmodels\\resultsviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D8DE46A8-73EC-C85C-C667-4962D692B3FF}|DrivingAcademy\\DrivingAcademy.csproj|solutionrelative:drivingacademy\\viewmodels\\resultsviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8DE46A8-73EC-C85C-C667-4962D692B3FF}|DrivingAcademy\\DrivingAcademy.csproj|c:\\temp\\ispp31\\drivingacademy\\drivingacademy\\drivingacademy\\viewmodels\\profileviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D8DE46A8-73EC-C85C-C667-4962D692B3FF}|DrivingAcademy\\DrivingAcademy.csproj|solutionrelative:drivingacademy\\viewmodels\\profileviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8DE46A8-73EC-C85C-C667-4962D692B3FF}|DrivingAcademy\\DrivingAcademy.csproj|c:\\temp\\ispp31\\drivingacademy\\drivingacademy\\drivingacademy\\viewmodels\\leaderboardviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D8DE46A8-73EC-C85C-C667-4962D692B3FF}|DrivingAcademy\\DrivingAcademy.csproj|solutionrelative:drivingacademy\\viewmodels\\leaderboardviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8DE46A8-73EC-C85C-C667-4962D692B3FF}|DrivingAcademy\\DrivingAcademy.csproj|c:\\temp\\ispp31\\drivingacademy\\drivingacademy\\drivingacademy\\viewmodels\\configurationsviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D8DE46A8-73EC-C85C-C667-4962D692B3FF}|DrivingAcademy\\DrivingAcademy.csproj|solutionrelative:drivingacademy\\viewmodels\\configurationsviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8DE46A8-73EC-C85C-C667-4962D692B3FF}|DrivingAcademy\\DrivingAcademy.csproj|c:\\temp\\ispp31\\drivingacademy\\drivingacademy\\drivingacademy\\viewmodels\\carsviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D8DE46A8-73EC-C85C-C667-4962D692B3FF}|DrivingAcademy\\DrivingAcademy.csproj|solutionrelative:drivingacademy\\viewmodels\\carsviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8DE46A8-73EC-C85C-C667-4962D692B3FF}|DrivingAcademy\\DrivingAcademy.csproj|c:\\temp\\ispp31\\drivingacademy\\drivingacademy\\drivingacademy\\viewmodels\\accountviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D8DE46A8-73EC-C85C-C667-4962D692B3FF}|DrivingAcademy\\DrivingAcademy.csproj|solutionrelative:drivingacademy\\viewmodels\\accountviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8DE46A8-73EC-C85C-C667-4962D692B3FF}|DrivingAcademy\\DrivingAcademy.csproj|c:\\temp\\ispp31\\drivingacademy\\drivingacademy\\drivingacademy\\models\\lapresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D8DE46A8-73EC-C85C-C667-4962D692B3FF}|DrivingAcademy\\DrivingAcademy.csproj|solutionrelative:drivingacademy\\models\\lapresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8DE46A8-73EC-C85C-C667-4962D692B3FF}|DrivingAcademy\\DrivingAcademy.csproj|c:\\temp\\ispp31\\drivingacademy\\drivingacademy\\drivingacademy\\data\\academycontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D8DE46A8-73EC-C85C-C667-4962D692B3FF}|DrivingAcademy\\DrivingAcademy.csproj|solutionrelative:drivingacademy\\data\\academycontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,50 +82,50 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "AcademyContext.cs",
-              "DocumentMoniker": "C:\\Temp\\ispp31\\DrivingAcademy\\DrivingAcademy\\DrivingAcademy\\Data\\AcademyContext.cs",
-              "RelativeDocumentMoniker": "DrivingAcademy\\Data\\AcademyContext.cs",
-              "ToolTip": "C:\\Temp\\ispp31\\DrivingAcademy\\DrivingAcademy\\DrivingAcademy\\Data\\AcademyContext.cs",
-              "RelativeToolTip": "DrivingAcademy\\Data\\AcademyContext.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAABKAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "MainWindow.Users.cs",
+              "DocumentMoniker": "C:\\Temp\\ispp31\\DrivingAcademy\\DrivingAcademy\\DrivingAcademy\\MainWindow.Users.cs",
+              "RelativeDocumentMoniker": "DrivingAcademy\\MainWindow.Users.cs",
+              "ToolTip": "C:\\Temp\\ispp31\\DrivingAcademy\\DrivingAcademy\\DrivingAcademy\\MainWindow.Users.cs",
+              "RelativeToolTip": "DrivingAcademy\\MainWindow.Users.cs",
+              "ViewState": "AgIAACMAAAAAAAAAAAAwwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-23T05:48:44.899Z",
+              "WhenOpened": "2026-11-23T05:59:04.717Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
+              "Title": "MainWindow.Tracks.cs",
+              "DocumentMoniker": "C:\\Temp\\ispp31\\DrivingAcademy\\DrivingAcademy\\DrivingAcademy\\MainWindow.Tracks.cs",
+              "RelativeDocumentMoniker": "DrivingAcademy\\MainWindow.Tracks.cs",
+              "ToolTip": "C:\\Temp\\ispp31\\DrivingAcademy\\DrivingAcademy\\DrivingAcademy\\MainWindow.Tracks.cs",
+              "RelativeToolTip": "DrivingAcademy\\MainWindow.Tracks.cs",
+              "ViewState": "AgIAAD4AAAAAAAAAAAAuwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-23T05:59:00.748Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
               "Title": "MainWindow.Results.cs",
               "DocumentMoniker": "C:\\Temp\\ispp31\\DrivingAcademy\\DrivingAcademy\\DrivingAcademy\\MainWindow.Results.cs",
               "RelativeDocumentMoniker": "DrivingAcademy\\MainWindow.Results.cs",
               "ToolTip": "C:\\Temp\\ispp31\\DrivingAcademy\\DrivingAcademy\\DrivingAcademy\\MainWindow.Results.cs",
               "RelativeToolTip": "DrivingAcademy\\MainWindow.Results.cs",
-              "ViewState": "AgIAADIAAAAAAAAAAAAIwD8AAABBAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAHcAAABtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-11-23T05:48:36.047Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "MainWindow.Configurations.cs",
-              "DocumentMoniker": "C:\\Temp\\ispp31\\DrivingAcademy\\DrivingAcademy\\DrivingAcademy\\MainWindow.Configurations.cs",
-              "RelativeDocumentMoniker": "DrivingAcademy\\MainWindow.Configurations.cs",
-              "ToolTip": "C:\\Temp\\ispp31\\DrivingAcademy\\DrivingAcademy\\DrivingAcademy\\MainWindow.Configurations.cs",
-              "RelativeToolTip": "DrivingAcademy\\MainWindow.Configurations.cs",
-              "ViewState": "AgIAACYAAAAAAAAAAAAwwEAAAABGAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-22T22:55:58.303Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "AssemblyInfo.cs",
               "DocumentMoniker": "C:\\Temp\\ispp31\\DrivingAcademy\\DrivingAcademy\\DrivingAcademy\\AssemblyInfo.cs",
               "RelativeDocumentMoniker": "DrivingAcademy\\AssemblyInfo.cs",
@@ -95,30 +139,6 @@
             {
               "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "MainWindow.xaml",
-              "DocumentMoniker": "C:\\Temp\\ispp31\\DrivingAcademy\\DrivingAcademy\\DrivingAcademy\\MainWindow.xaml",
-              "RelativeDocumentMoniker": "DrivingAcademy\\MainWindow.xaml",
-              "ToolTip": "C:\\Temp\\ispp31\\DrivingAcademy\\DrivingAcademy\\DrivingAcademy\\MainWindow.xaml",
-              "RelativeToolTip": "DrivingAcademy\\MainWindow.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-11-22T14:49:57.778Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "MainWindow.xaml.cs",
-              "DocumentMoniker": "C:\\Temp\\ispp31\\DrivingAcademy\\DrivingAcademy\\DrivingAcademy\\MainWindow.xaml.cs",
-              "RelativeDocumentMoniker": "DrivingAcademy\\MainWindow.xaml.cs",
-              "ToolTip": "C:\\Temp\\ispp31\\DrivingAcademy\\DrivingAcademy\\DrivingAcademy\\MainWindow.xaml.cs",
-              "RelativeToolTip": "DrivingAcademy\\MainWindow.xaml.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABwAAAA9AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-22T14:49:55.773Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
               "Title": "MainWindow.Cars.cs",
               "DocumentMoniker": "C:\\Temp\\ispp31\\DrivingAcademy\\DrivingAcademy\\DrivingAcademy\\MainWindow.Cars.cs",
               "RelativeDocumentMoniker": "DrivingAcademy\\MainWindow.Cars.cs",
@@ -127,6 +147,174 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-11-23T05:46:46.256Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Temp\\ispp31\\DrivingAcademy\\DrivingAcademy\\DrivingAcademy\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "DrivingAcademy\\MainWindow.xaml.cs",
+              "ToolTip": "C:\\Temp\\ispp31\\DrivingAcademy\\DrivingAcademy\\DrivingAcademy\\MainWindow.xaml.cs",
+              "RelativeToolTip": "DrivingAcademy\\MainWindow.xaml.cs",
+              "ViewState": "AgIAAHMAAAAAAAAAAAAUwBQAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-22T14:49:55.773Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "C:\\Temp\\ispp31\\DrivingAcademy\\DrivingAcademy\\DrivingAcademy\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "DrivingAcademy\\MainWindow.xaml",
+              "ToolTip": "C:\\Temp\\ispp31\\DrivingAcademy\\DrivingAcademy\\DrivingAcademy\\MainWindow.xaml",
+              "RelativeToolTip": "DrivingAcademy\\MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-11-22T14:49:57.778Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "UsersViewModel.cs",
+              "DocumentMoniker": "C:\\Temp\\ispp31\\DrivingAcademy\\DrivingAcademy\\DrivingAcademy\\ViewModels\\UsersViewModel.cs",
+              "RelativeDocumentMoniker": "DrivingAcademy\\ViewModels\\UsersViewModel.cs",
+              "ToolTip": "C:\\Temp\\ispp31\\DrivingAcademy\\DrivingAcademy\\DrivingAcademy\\ViewModels\\UsersViewModel.cs",
+              "RelativeToolTip": "DrivingAcademy\\ViewModels\\UsersViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-23T05:58:33.556Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "TracksViewModel.cs",
+              "DocumentMoniker": "C:\\Temp\\ispp31\\DrivingAcademy\\DrivingAcademy\\DrivingAcademy\\ViewModels\\TracksViewModel.cs",
+              "RelativeDocumentMoniker": "DrivingAcademy\\ViewModels\\TracksViewModel.cs",
+              "ToolTip": "C:\\Temp\\ispp31\\DrivingAcademy\\DrivingAcademy\\DrivingAcademy\\ViewModels\\TracksViewModel.cs",
+              "RelativeToolTip": "DrivingAcademy\\ViewModels\\TracksViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-23T05:58:29.212Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "MainWindow.Configurations.cs",
+              "DocumentMoniker": "C:\\Temp\\ispp31\\DrivingAcademy\\DrivingAcademy\\DrivingAcademy\\MainWindow.Configurations.cs",
+              "RelativeDocumentMoniker": "DrivingAcademy\\MainWindow.Configurations.cs",
+              "ToolTip": "C:\\Temp\\ispp31\\DrivingAcademy\\DrivingAcademy\\DrivingAcademy\\MainWindow.Configurations.cs",
+              "RelativeToolTip": "DrivingAcademy\\MainWindow.Configurations.cs",
+              "ViewState": "AgIAACYAAAAAAAAAAAAwwEAAAABGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-22T22:55:58.303Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "ResultsViewModel.cs",
+              "DocumentMoniker": "C:\\Temp\\ispp31\\DrivingAcademy\\DrivingAcademy\\DrivingAcademy\\ViewModels\\ResultsViewModel.cs",
+              "RelativeDocumentMoniker": "DrivingAcademy\\ViewModels\\ResultsViewModel.cs",
+              "ToolTip": "C:\\Temp\\ispp31\\DrivingAcademy\\DrivingAcademy\\DrivingAcademy\\ViewModels\\ResultsViewModel.cs",
+              "RelativeToolTip": "DrivingAcademy\\ViewModels\\ResultsViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-23T05:58:25.979Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "ProfileViewModel.cs",
+              "DocumentMoniker": "C:\\Temp\\ispp31\\DrivingAcademy\\DrivingAcademy\\DrivingAcademy\\ViewModels\\ProfileViewModel.cs",
+              "RelativeDocumentMoniker": "DrivingAcademy\\ViewModels\\ProfileViewModel.cs",
+              "ToolTip": "C:\\Temp\\ispp31\\DrivingAcademy\\DrivingAcademy\\DrivingAcademy\\ViewModels\\ProfileViewModel.cs",
+              "RelativeToolTip": "DrivingAcademy\\ViewModels\\ProfileViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-23T05:58:22.352Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "LeaderboardViewModel.cs",
+              "DocumentMoniker": "C:\\Temp\\ispp31\\DrivingAcademy\\DrivingAcademy\\DrivingAcademy\\ViewModels\\LeaderboardViewModel.cs",
+              "RelativeDocumentMoniker": "DrivingAcademy\\ViewModels\\LeaderboardViewModel.cs",
+              "ToolTip": "C:\\Temp\\ispp31\\DrivingAcademy\\DrivingAcademy\\DrivingAcademy\\ViewModels\\LeaderboardViewModel.cs",
+              "RelativeToolTip": "DrivingAcademy\\ViewModels\\LeaderboardViewModel.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAowAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-23T05:57:12.358Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "ConfigurationsViewModel.cs",
+              "DocumentMoniker": "C:\\Temp\\ispp31\\DrivingAcademy\\DrivingAcademy\\DrivingAcademy\\ViewModels\\ConfigurationsViewModel.cs",
+              "RelativeDocumentMoniker": "DrivingAcademy\\ViewModels\\ConfigurationsViewModel.cs",
+              "ToolTip": "C:\\Temp\\ispp31\\DrivingAcademy\\DrivingAcademy\\DrivingAcademy\\ViewModels\\ConfigurationsViewModel.cs",
+              "RelativeToolTip": "DrivingAcademy\\ViewModels\\ConfigurationsViewModel.cs",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAIwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-23T05:57:04.374Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "LapResult.cs",
+              "DocumentMoniker": "C:\\Temp\\ispp31\\DrivingAcademy\\DrivingAcademy\\DrivingAcademy\\Models\\LapResult.cs",
+              "RelativeDocumentMoniker": "DrivingAcademy\\Models\\LapResult.cs",
+              "ToolTip": "C:\\Temp\\ispp31\\DrivingAcademy\\DrivingAcademy\\DrivingAcademy\\Models\\LapResult.cs",
+              "RelativeToolTip": "DrivingAcademy\\Models\\LapResult.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-23T05:58:02.195Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "CarsViewModel.cs",
+              "DocumentMoniker": "C:\\Temp\\ispp31\\DrivingAcademy\\DrivingAcademy\\DrivingAcademy\\ViewModels\\CarsViewModel.cs",
+              "RelativeDocumentMoniker": "DrivingAcademy\\ViewModels\\CarsViewModel.cs",
+              "ToolTip": "C:\\Temp\\ispp31\\DrivingAcademy\\DrivingAcademy\\DrivingAcademy\\ViewModels\\CarsViewModel.cs",
+              "RelativeToolTip": "DrivingAcademy\\ViewModels\\CarsViewModel.cs",
+              "ViewState": "AgIAABoAAAAAAAAAAAAwwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-23T05:56:06.93Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "AccountViewModel.cs",
+              "DocumentMoniker": "C:\\Temp\\ispp31\\DrivingAcademy\\DrivingAcademy\\DrivingAcademy\\ViewModels\\AccountViewModel.cs",
+              "RelativeDocumentMoniker": "DrivingAcademy\\ViewModels\\AccountViewModel.cs",
+              "ToolTip": "C:\\Temp\\ispp31\\DrivingAcademy\\DrivingAcademy\\DrivingAcademy\\ViewModels\\AccountViewModel.cs",
+              "RelativeToolTip": "DrivingAcademy\\ViewModels\\AccountViewModel.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAADMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-23T05:55:35.396Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "AcademyContext.cs",
+              "DocumentMoniker": "C:\\Temp\\ispp31\\DrivingAcademy\\DrivingAcademy\\DrivingAcademy\\Data\\AcademyContext.cs",
+              "RelativeDocumentMoniker": "DrivingAcademy\\Data\\AcademyContext.cs",
+              "ToolTip": "C:\\Temp\\ispp31\\DrivingAcademy\\DrivingAcademy\\DrivingAcademy\\Data\\AcademyContext.cs",
+              "RelativeToolTip": "DrivingAcademy\\Data\\AcademyContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-23T05:48:44.899Z",
               "EditorCaption": ""
             }
           ]

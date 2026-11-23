@@ -1,284 +1,962 @@
-<Window x:Class="DrivingAcademy.MainWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        UseLayoutRounding="True" TextOptions.TextFormattingMode="Display" Title="Driving Academy" Width="980" Height="620" MinWidth="640" MinHeight="450"
-        FontFamily="{StaticResource AppFont}" FontSize="14" Background="{StaticResource Page}" Foreground="{StaticResource Ink}"
-        Loaded="Window_Loaded" WindowStartupLocation="CenterScreen">
-    <DockPanel x:Name="LayoutRoot">
-        <Border DockPanel.Dock="Top" Padding="28,22" Background="{StaticResource Panel}">
-            <DockPanel>
-                <Button x:Name="AccountButton" DockPanel.Dock="Right" Content="Войти" Padding="15,8" Click="Account_Click"/>
-                <TextBlock TextAlignment="Right" FontSize="13" x:Name="Identity" DockPanel.Dock="Right" VerticalAlignment="Center" Margin="12,0"/>
-                <Border DockPanel.Dock="Left" Width="40" Height="40" CornerRadius="8" Background="{StaticResource Accent}" Margin="0,0,12,0">
-                    <TextBlock Text="DA" Foreground="{StaticResource Panel}" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="SemiBold"/>
+<Window
+  x:Class="DrivingAcademy.MainWindow"
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+  UseLayoutRounding="True"
+  TextOptions.TextFormattingMode="Display"
+  Title="Driving Academy"
+  Width="980"
+  Height="620"
+  MinWidth="640"
+  MinHeight="450"
+  FontFamily="{StaticResource AppFont}"
+  FontSize="14"
+  Background="{StaticResource Page}"
+  Foreground="{StaticResource Ink}"
+  Loaded="Window_Loaded"
+  WindowStartupLocation="CenterScreen"
+>
+  <DockPanel x:Name="LayoutRoot">
+    <Border DockPanel.Dock="Top" Padding="28,22" Background="{StaticResource Panel}">
+      <DockPanel>
+        <Button
+          x:Name="AccountButton"
+          DockPanel.Dock="Right"
+          Content="Войти"
+          Padding="15,8"
+          Click="Account_Click"
+        />
+        <TextBlock
+          TextAlignment="Right"
+          FontSize="13"
+          x:Name="Identity"
+          DockPanel.Dock="Right"
+          VerticalAlignment="Center"
+          Margin="12,0"
+        />
+        <Border
+          DockPanel.Dock="Left"
+          Width="40"
+          Height="40"
+          CornerRadius="8"
+          Background="{StaticResource Accent}"
+          Margin="0,0,12,0"
+        >
+          <TextBlock
+            Text="DA"
+            Foreground="{StaticResource Panel}"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Center"
+            FontWeight="SemiBold"
+          />
+        </Border>
+        <StackPanel>
+          <TextBlock Text="Driving Academy" FontSize="17" FontWeight="SemiBold" />
+          <TextBlock
+            Text="Клуб автосимуляторов"
+            FontSize="12"
+            Foreground="{StaticResource Muted}"
+          />
+        </StackPanel>
+      </DockPanel>
+    </Border>
+    <Border
+      DockPanel.Dock="Top"
+      Background="{StaticResource Panel}"
+      BorderBrush="{StaticResource Line}"
+      BorderThickness="0,0,0,1"
+      Padding="28,0"
+    >
+      <StackPanel Orientation="Horizontal">
+        <Border
+          x:Name="BoardTab"
+          HorizontalAlignment="Left"
+          Padding="0,3"
+          BorderBrush="{StaticResource Accent}"
+          BorderThickness="0,0,0,2"
+        >
+          <Button
+            Content="Лидерборд"
+            FontWeight="SemiBold"
+            Background="Transparent"
+            BorderThickness="0"
+            Click="Board_Click"
+          />
+        </Border>
+        <Border
+          x:Name="ProfileTab"
+          Visibility="Collapsed"
+          BorderBrush="{StaticResource Accent}"
+          Padding="0,3"
+          Margin="20,0,0,0"
+        >
+          <Button
+            Content="Личный кабинет"
+            Background="Transparent"
+            BorderThickness="0"
+            Click="Profile_Click"
+          />
+        </Border>
+        <Button
+          x:Name="ManageTab"
+          Content="Управление"
+          Visibility="Collapsed"
+          Click="Results_Click"
+          Background="Transparent"
+          BorderThickness="0"
+          Margin="20,0,0,0"
+        />
+      </StackPanel>
+    </Border>
+    <Border
+      DockPanel.Dock="Bottom"
+      Padding="28,12"
+      BorderBrush="{StaticResource Line}"
+      BorderThickness="0,1,0,0"
+    >
+      <TextBlock Text="Академия вождения" FontSize="11" Foreground="{StaticResource Muted}" />
+    </Border>
+    <Grid>
+      <ScrollViewer x:Name="Board" VerticalScrollBarVisibility="Auto">
+        <StackPanel Margin="28">
+          <TextBlock Text="Таблица рекордов" FontSize="24" FontWeight="SemiBold" />
+          <TextBlock
+            Text="Лучшее время каждого пилота на выбранной конфигурации трассы."
+            Margin="0,7,0,24"
+            Foreground="{StaticResource Muted}"
+            TextWrapping="Wrap"
+          />
+          <Grid Margin="0,0,0,20">
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition />
+              <ColumnDefinition />
+              <ColumnDefinition />
+              <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="0" Margin="0,0,14,0">
+              <TextBlock Text="Трасса" />
+              <ComboBox
+                AutomationProperties.Name="Трасса"
+                Height="40"
+                Margin="0,6,0,0"
+                IsTextSearchEnabled="True"
+                ItemsSource="{Binding Tracks}"
+                SelectedItem="{Binding SelectedTrack}"
+              />
+            </StackPanel>
+            <StackPanel Grid.Column="1" Margin="0,0,14,0">
+              <TextBlock Text="Конфигурация" />
+              <ComboBox
+                AutomationProperties.Name="Конфигурация"
+                Height="40"
+                Margin="0,6,0,0"
+                ItemsSource="{Binding Configurations}"
+                SelectedItem="{Binding SelectedConfiguration}"
+              />
+            </StackPanel>
+            <StackPanel Grid.Column="2" Margin="0,0,14,0">
+              <TextBlock Text="Автомобиль" />
+              <ComboBox
+                AutomationProperties.Name="Автомобиль"
+                Height="40"
+                Margin="0,6,0,0"
+                DisplayMemberPath="Label"
+                ItemsSource="{Binding Cars}"
+                SelectedItem="{Binding SelectedCar}"
+              />
+            </StackPanel>
+            <Button
+              Grid.Column="3"
+              Content="Показать"
+              Height="40"
+              Padding="15,0"
+              VerticalAlignment="Bottom"
+              Command="{Binding ShowCommand}"
+            />
+          </Grid>
+          <Grid>
+            <DataGrid
+              x:Name="Leaderboard"
+              ItemsSource="{Binding Rows}"
+              CanUserSortColumns="False"
+              RowHeight="40"
+              MinHeight="145"
+              AutoGenerateColumns="False"
+              HeadersVisibility="Column"
+              IsReadOnly="True"
+              CanUserAddRows="False"
+              Background="{StaticResource Panel}"
+              BorderBrush="{StaticResource Line}"
+            >
+              <DataGrid.Columns>
+                <DataGridTextColumn Header="Место" Binding="{Binding Place}" Width="*" />
+                <DataGridTextColumn Header="Пилот" Binding="{Binding Pilot}" Width="2*" />
+                <DataGridTextColumn Header="Лучший круг" Binding="{Binding BestLap}" Width="*" />
+                <DataGridTextColumn
+                  Header="Дата"
+                  Binding="{Binding Date, StringFormat=dd.MM.yyyy}"
+                  Width="*"
+                />
+              </DataGrid.Columns>
+            </DataGrid>
+            <TextBlock
+              Text="Пока нет результатов"
+              HorizontalAlignment="Center"
+              VerticalAlignment="Center"
+              Margin="0,42,0,0"
+              Foreground="{StaticResource Muted}"
+              IsHitTestVisible="False"
+            >
+              <TextBlock.Style>
+                <Style TargetType="TextBlock">
+                  <Setter Property="Visibility" Value="Collapsed" />
+                  <Style.Triggers>
+                    <DataTrigger
+                      Binding="{Binding HasItems, ElementName=Leaderboard}"
+                      Value="False"
+                    >
+                      <Setter Property="Visibility" Value="Visible" />
+                    </DataTrigger>
+                  </Style.Triggers>
+                </Style>
+              </TextBlock.Style>
+            </TextBlock>
+          </Grid>
+          <TextBlock
+            Text="{Binding Status}"
+            Margin="0,10,0,0"
+            Foreground="{StaticResource Muted}"
+          />
+        </StackPanel>
+      </ScrollViewer>
+      <ScrollViewer x:Name="Profile" Visibility="Collapsed" VerticalScrollBarVisibility="Auto">
+        <StackPanel Margin="28">
+          <TextBlock Text="Личный кабинет" FontSize="24" FontWeight="SemiBold" />
+          <TextBlock
+            Text="Профиль пилота и история внесённых результатов."
+            Margin="0,7,0,24"
+            Foreground="{StaticResource Muted}"
+          />
+          <Grid>
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="220" />
+              <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Border
+              Background="{StaticResource Panel}"
+              CornerRadius="8"
+              Padding="18"
+              BorderBrush="{StaticResource Line}"
+              BorderThickness="1"
+              VerticalAlignment="Top"
+            >
+              <StackPanel>
+                <Border
+                  Background="{StaticResource Soft}"
+                  Width="48"
+                  Height="48"
+                  CornerRadius="24"
+                  HorizontalAlignment="Left"
+                >
+                  <TextBlock
+                    Text="{Binding Pilot.Initials}"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    FontWeight="SemiBold"
+                  />
                 </Border>
-                <StackPanel>
-                    <TextBlock Text="Driving Academy" FontSize="17" FontWeight="SemiBold"/>
-                    <TextBlock Text="Клуб автосимуляторов" FontSize="12" Foreground="{StaticResource Muted}"/>
-                </StackPanel>
-            </DockPanel>
-        </Border>
-        <Border DockPanel.Dock="Top" Background="{StaticResource Panel}" BorderBrush="{StaticResource Line}" BorderThickness="0,0,0,1" Padding="28,0">
-            <StackPanel Orientation="Horizontal">
-            <Border x:Name="BoardTab" HorizontalAlignment="Left" Padding="0,3" BorderBrush="{StaticResource Accent}" BorderThickness="0,0,0,2">
-                <Button Content="Лидерборд" FontWeight="SemiBold" Background="Transparent" BorderThickness="0" Click="Board_Click"/>
+                <TextBlock
+                  Text="{Binding Pilot.FullName}"
+                  TextWrapping="Wrap"
+                  FontWeight="SemiBold"
+                  FontSize="17"
+                  Margin="0,12,0,0"
+                />
+                <TextBlock Text="{Binding Pilot.Role}" />
+                <TextBlock Text="Логин" Margin="0,18,0,2" Foreground="{StaticResource Muted}" />
+                <TextBlock Text="{Binding Pilot.Username}" TextWrapping="Wrap" />
+                <TextBlock
+                  Text="Регистрация"
+                  Margin="0,12,0,2"
+                  Foreground="{StaticResource Muted}"
+                />
+                <TextBlock Text="{Binding Pilot.CreatedAt, StringFormat=dd.MM.yyyy}" />
+              </StackPanel>
             </Border>
-            <Border x:Name="ProfileTab" Visibility="Collapsed" BorderBrush="{StaticResource Accent}" Padding="0,3" Margin="20,0,0,0">
-                <Button Content="Личный кабинет" Background="Transparent" BorderThickness="0" Click="Profile_Click"/>
+            <StackPanel Grid.Column="1" Margin="20,0,0,0">
+              <TextBlock
+                Text="Мои результаты"
+                FontSize="17"
+                FontWeight="SemiBold"
+                Margin="0,0,0,12"
+              />
+              <DataGrid
+                ItemsSource="{Binding Laps}"
+                AutoGenerateColumns="False"
+                HeadersVisibility="Column"
+                IsReadOnly="True"
+                CanUserAddRows="False"
+                RowHeight="40"
+                Background="{StaticResource Panel}"
+              >
+                <DataGrid.Columns>
+                  <DataGridTextColumn Header="Трасса / конфигурация" Binding="{Binding Circuit}" />
+                  <DataGridTextColumn Header="Автомобиль" Binding="{Binding Car}" />
+                  <DataGridTextColumn Header="Время" Binding="{Binding LapTime}" />
+                  <DataGridTextColumn
+                    Header="Дата"
+                    Binding="{Binding DrivenAt, StringFormat=dd.MM.yyyy HH:mm}"
+                  />
+                </DataGrid.Columns>
+              </DataGrid>
+              <TextBlock x:Name="HistoryStatus" Margin="0,12,0,0" TextWrapping="Wrap" />
+            </StackPanel>
+          </Grid>
+        </StackPanel>
+      </ScrollViewer>
+      <ScrollViewer x:Name="ResultsPanel" Visibility="Collapsed" VerticalScrollBarVisibility="Auto">
+        <StackPanel Margin="28">
+          <DockPanel
+            Visibility="{Binding ElementName=ResultTools, Path=Visibility}"
+            Margin="0,0,0,24"
+          >
+            <Button
+              DockPanel.Dock="Right"
+              VerticalAlignment="Center"
+              x:Name="AddResult"
+              Style="{StaticResource PrimaryAction}"
+              Content="Добавить результат"
+              Click="EditResult"
+              Padding="12,6"
+            />
+            <StackPanel>
+              <TextBlock Text="Результаты заездов" FontSize="24" FontWeight="SemiBold" />
+              <TextBlock
+                Text="Внесение и исправление результатов пилотов."
+                Margin="0,7,0,0"
+                Foreground="{StaticResource Muted}"
+              />
+            </StackPanel>
+          </DockPanel>
+          <DockPanel
+            Visibility="{Binding ElementName=TrackTools, Path=Visibility}"
+            Margin="0,0,0,24"
+          >
+            <Button
+              DockPanel.Dock="Right"
+              VerticalAlignment="Center"
+              x:Name="AddTrack"
+              Style="{StaticResource PrimaryAction}"
+              Content="Добавить"
+              Click="EditTrack"
+              Padding="12,6"
+            />
+            <StackPanel>
+              <TextBlock Text="Справочники" FontSize="24" FontWeight="SemiBold" />
+              <TextBlock
+                Text="Трассы, конфигурации и автомобили клуба."
+                Margin="0,7,0,0"
+                Foreground="{StaticResource Muted}"
+              />
+            </StackPanel>
+          </DockPanel>
+          <DockPanel
+            Visibility="{Binding ElementName=ConfigTools, Path=Visibility}"
+            Margin="0,0,0,24"
+          >
+            <Button
+              DockPanel.Dock="Right"
+              VerticalAlignment="Center"
+              x:Name="AddConfig"
+              Style="{StaticResource PrimaryAction}"
+              Content="Добавить"
+              Click="EditConfiguration"
+              Padding="12,6"
+            />
+            <StackPanel>
+              <TextBlock Text="Справочники" FontSize="24" FontWeight="SemiBold" />
+              <TextBlock
+                Text="Трассы, конфигурации и автомобили клуба."
+                Margin="0,7,0,0"
+                Foreground="{StaticResource Muted}"
+              />
+            </StackPanel>
+          </DockPanel>
+          <DockPanel Visibility="{Binding ElementName=CarTools, Path=Visibility}" Margin="0,0,0,24">
+            <Button
+              DockPanel.Dock="Right"
+              VerticalAlignment="Center"
+              x:Name="AddCar"
+              Style="{StaticResource PrimaryAction}"
+              Content="Добавить"
+              Click="EditCar"
+              Padding="12,6"
+            />
+            <StackPanel>
+              <TextBlock Text="Справочники" FontSize="24" FontWeight="SemiBold" />
+              <TextBlock
+                Text="Трассы, конфигурации и автомобили клуба."
+                Margin="0,7,0,0"
+                Foreground="{StaticResource Muted}"
+              />
+            </StackPanel>
+          </DockPanel>
+          <DockPanel
+            Visibility="{Binding ElementName=UsersPanel, Path=Visibility}"
+            Margin="0,0,0,24"
+          >
+            <StackPanel>
+              <TextBlock Text="Пользователи" FontSize="24" FontWeight="SemiBold" />
+              <TextBlock
+                Text="Управление учётными записями и ролями."
+                Margin="0,7,0,0"
+                Foreground="{StaticResource Muted}"
+              />
+            </StackPanel>
+          </DockPanel>
+          <WrapPanel Margin="0,0,0,22">
+            <Button Content="Результаты" Click="Results_Click" />
+            <Button Content="Справочники" Click="Tracks_Click" Margin="8,0" />
+            <Button
+              x:Name="UsersTab"
+              Content="Пользователи"
+              Click="Users_Click"
+              Visibility="Collapsed"
+            />
+          </WrapPanel>
+          <StackPanel x:Name="ResultTools">
+            <Grid Margin="0,0,0,20">
+              <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition Width="Auto" />
+              </Grid.ColumnDefinitions>
+              <StackPanel Grid.Column="0" Margin="0,0,14,0">
+                <TextBlock Text="Трасса" />
+                <ComboBox
+                  x:Name="FilterTrack"
+                  SelectionChanged="FilterTrackChanged"
+                  Height="38"
+                  Margin="0,6,0,0"
+                />
+              </StackPanel>
+              <StackPanel Grid.Column="1" Margin="0,0,14,0">
+                <TextBlock Text="Конфигурация" />
+                <ComboBox
+                  x:Name="FilterLayout"
+                  DisplayMemberPath="Label"
+                  Height="38"
+                  Margin="0,6,0,0"
+                />
+              </StackPanel>
+              <StackPanel Grid.Column="2" Margin="0,0,14,0">
+                <TextBlock Text="Автомобиль" />
+                <ComboBox
+                  x:Name="FilterCar"
+                  DisplayMemberPath="Label"
+                  Height="38"
+                  Margin="0,6,0,0"
+                />
+              </StackPanel>
+              <Button
+                Grid.Column="3"
+                Content="Показать"
+                Click="FilterResults"
+                Height="38"
+                VerticalAlignment="Bottom"
+              />
+            </Grid>
+            <DataGrid
+              x:Name="ResultsGrid"
+              MaxHeight="260"
+              AutoGenerateColumns="False"
+              IsReadOnly="True"
+              SelectionMode="Single"
+              CanUserAddRows="False"
+              HeadersVisibility="Column"
+            >
+              <DataGrid.Columns>
+                <DataGridTextColumn Header="Пилот" Binding="{Binding Pilot}" />
+                <DataGridTextColumn Header="Трасса / конфигурация" Binding="{Binding Circuit}" />
+                <DataGridTextColumn Header="Автомобиль" Binding="{Binding Car}" />
+                <DataGridTextColumn Header="Время" Binding="{Binding Time}" />
+                <DataGridTemplateColumn Header="Действия">
+                  <DataGridTemplateColumn.CellTemplate>
+                    <DataTemplate>
+                      <StackPanel Orientation="Horizontal">
+                        <Button
+                          Content="Изменить"
+                          Click="EditResult"
+                          Style="{StaticResource RowAction}"
+                        />
+                        <Button
+                          Content="Удалить"
+                          Click="DeleteResult"
+                          Style="{StaticResource RowAction}"
+                        />
+                      </StackPanel>
+                    </DataTemplate>
+                  </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+              </DataGrid.Columns>
+            </DataGrid>
+            <Border
+              x:Name="ResultEditor"
+              Visibility="Collapsed"
+              Background="{StaticResource Panel}"
+              BorderBrush="{StaticResource Line}"
+              BorderThickness="1"
+              CornerRadius="8"
+              Padding="20"
+              Margin="0,20,0,0"
+            >
+              <StackPanel>
+                <TextBlock x:Name="EditorTitle" FontSize="17" FontWeight="SemiBold" />
+                <UniformGrid Columns="3" Rows="2">
+                  <StackPanel Margin="0,8,10,0">
+                    <TextBlock Text="Пилот" />
+                    <ComboBox
+                      x:Name="PilotBox"
+                      ItemsSource="{Binding Pilots}"
+                      SelectedValuePath="Id"
+                      DisplayMemberPath="Label"
+                    />
+                  </StackPanel>
+                  <StackPanel Margin="0,8,10,0">
+                    <TextBlock Text="Трасса" />
+                    <ComboBox x:Name="EditTrackBox" SelectionChanged="EditTrackChanged" />
+                  </StackPanel>
+                  <StackPanel Margin="0,8,10,0">
+                    <TextBlock Text="Конфигурация" />
+                    <ComboBox x:Name="CircuitBox" SelectedValuePath="Id" DisplayMemberPath="Name" />
+                  </StackPanel>
+                  <StackPanel Margin="0,8,10,0">
+                    <TextBlock Text="Автомобиль" />
+                    <ComboBox
+                      x:Name="CarBox"
+                      ItemsSource="{Binding Cars}"
+                      SelectedValuePath="Id"
+                      DisplayMemberPath="Label"
+                    />
+                  </StackPanel>
+                  <StackPanel Margin="0,8,10,0">
+                    <TextBlock Text="Время круга (1:31.300)" />
+                    <TextBox x:Name="LapInput" />
+                  </StackPanel>
+                  <StackPanel Margin="0,8,10,0">
+                    <TextBlock Text="Дата и время заезда" />
+                    <TextBox x:Name="DateInput" />
+                  </StackPanel>
+                </UniformGrid>
+                <StackPanel Orientation="Horizontal" Margin="0,12">
+                  <Button
+                    Style="{StaticResource PrimaryAction}"
+                    Content="Сохранить"
+                    Click="SaveResult"
+                    Padding="12,6"
+                  />
+                  <Button Content="Отмена" Click="CancelResult" Margin="8,0" Padding="12,6" />
+                </StackPanel>
+              </StackPanel>
             </Border>
-            <Button x:Name="ManageTab" Content="Управление" Visibility="Collapsed" Click="Results_Click" Background="Transparent" BorderThickness="0" Margin="20,0,0,0"/>
-            </StackPanel>
-        </Border>
-        <Border DockPanel.Dock="Bottom" Padding="28,12" BorderBrush="{StaticResource Line}" BorderThickness="0,1,0,0">
-            <TextBlock Text="Академия вождения" FontSize="11" Foreground="{StaticResource Muted}"/>
-        </Border>
-        <Grid>
-        <ScrollViewer x:Name="Board" VerticalScrollBarVisibility="Auto">
-            <StackPanel Margin="28">
-                <TextBlock Text="Таблица рекордов" FontSize="24" FontWeight="SemiBold"/>
-                <TextBlock Text="Лучшее время каждого пилота на выбранной конфигурации трассы." Margin="0,7,0,24" Foreground="{StaticResource Muted}" TextWrapping="Wrap"/>
-                <Grid Margin="0,0,0,20">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                        <ColumnDefinition Width="Auto"/>
-                    </Grid.ColumnDefinitions>
-                    <StackPanel Grid.Column="0" Margin="0,0,14,0">
-                        <TextBlock Text="Трасса"/>
-                        <ComboBox AutomationProperties.Name="Трасса" Height="40" Margin="0,6,0,0"
-                                  IsTextSearchEnabled="True" ItemsSource="{Binding Tracks}" SelectedItem="{Binding SelectedTrack}"/>
-                    </StackPanel>
-                    <StackPanel Grid.Column="1" Margin="0,0,14,0">
-                        <TextBlock Text="Конфигурация"/>
-                        <ComboBox AutomationProperties.Name="Конфигурация" Height="40" Margin="0,6,0,0"
-                                  ItemsSource="{Binding Configurations}" SelectedItem="{Binding SelectedConfiguration}"/>
-                    </StackPanel>
-                    <StackPanel Grid.Column="2" Margin="0,0,14,0">
-                        <TextBlock Text="Автомобиль"/>
-                        <ComboBox AutomationProperties.Name="Автомобиль" Height="40" Margin="0,6,0,0"
-                                  DisplayMemberPath="Label" ItemsSource="{Binding Cars}" SelectedItem="{Binding SelectedCar}"/>
-                    </StackPanel>
-                    <Button Grid.Column="3" Content="Показать" Height="40" Padding="15,0" VerticalAlignment="Bottom" Command="{Binding ShowCommand}"/>
-                </Grid>
-                <Grid>
-                    <DataGrid x:Name="Leaderboard" ItemsSource="{Binding Rows}" CanUserSortColumns="False" RowHeight="40" MinHeight="145" AutoGenerateColumns="False" HeadersVisibility="Column" IsReadOnly="True"
-                              CanUserAddRows="False" Background="{StaticResource Panel}" BorderBrush="{StaticResource Line}">
-                        <DataGrid.Columns>
-                            <DataGridTextColumn Header="Место" Binding="{Binding Place}" Width="*"/>
-                            <DataGridTextColumn Header="Пилот" Binding="{Binding Pilot}" Width="2*"/>
-                            <DataGridTextColumn Header="Лучший круг" Binding="{Binding BestLap}" Width="*"/>
-                            <DataGridTextColumn Header="Дата" Binding="{Binding Date, StringFormat=dd.MM.yyyy}" Width="*"/>
-                        </DataGrid.Columns>
-                    </DataGrid>
-                    <TextBlock Text="Пока нет результатов" HorizontalAlignment="Center" VerticalAlignment="Center"
-                               Margin="0,42,0,0" Foreground="{StaticResource Muted}" IsHitTestVisible="False">
-                        <TextBlock.Style>
-                            <Style TargetType="TextBlock">
-                                <Setter Property="Visibility" Value="Collapsed"/>
-                                <Style.Triggers>
-                                    <DataTrigger Binding="{Binding HasItems, ElementName=Leaderboard}" Value="False">
-                                        <Setter Property="Visibility" Value="Visible"/>
-                                    </DataTrigger>
-                                </Style.Triggers>
-                            </Style>
-                        </TextBlock.Style>
-                    </TextBlock>
-                </Grid>
-                <TextBlock Text="{Binding Status}" Margin="0,10,0,0" Foreground="{StaticResource Muted}"/>
-            </StackPanel>
-        </ScrollViewer>
-        <ScrollViewer x:Name="Profile" Visibility="Collapsed" VerticalScrollBarVisibility="Auto">
-            <StackPanel Margin="28">
-                <TextBlock Text="Личный кабинет" FontSize="24" FontWeight="SemiBold"/>
-                <TextBlock Text="Профиль пилота и история внесённых результатов." Margin="0,7,0,24" Foreground="{StaticResource Muted}"/>
-                <Grid>
-                    <Grid.ColumnDefinitions><ColumnDefinition Width="220"/><ColumnDefinition Width="*"/></Grid.ColumnDefinitions>
-                    <Border Background="{StaticResource Panel}" CornerRadius="8" Padding="18" BorderBrush="{StaticResource Line}" BorderThickness="1" VerticalAlignment="Top">
-                        <StackPanel>
-                            <Border Background="{StaticResource Soft}" Width="48" Height="48" CornerRadius="24" HorizontalAlignment="Left">
-                                <TextBlock Text="{Binding Pilot.Initials}" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="SemiBold"/>
-                            </Border>
-                            <TextBlock Text="{Binding Pilot.FullName}" TextWrapping="Wrap" FontWeight="SemiBold" FontSize="17" Margin="0,12,0,0"/>
-                            <TextBlock Text="{Binding Pilot.Role}"/>
-                            <TextBlock Text="Логин" Margin="0,18,0,2" Foreground="{StaticResource Muted}"/>
-                            <TextBlock Text="{Binding Pilot.Username}" TextWrapping="Wrap"/>
-                            <TextBlock Text="Регистрация" Margin="0,12,0,2" Foreground="{StaticResource Muted}"/>
-                            <TextBlock Text="{Binding Pilot.CreatedAt, StringFormat=dd.MM.yyyy}"/>
-                        </StackPanel>
-                    </Border>
-                    <StackPanel Grid.Column="1" Margin="20,0,0,0">
-                        <TextBlock Text="Мои результаты" FontSize="17" FontWeight="SemiBold" Margin="0,0,0,12"/>
-                        <DataGrid ItemsSource="{Binding Laps}" AutoGenerateColumns="False" HeadersVisibility="Column" IsReadOnly="True" CanUserAddRows="False" RowHeight="40" Background="{StaticResource Panel}">
-                            <DataGrid.Columns>
-                                <DataGridTextColumn Header="Трасса / конфигурация" Binding="{Binding Circuit}"/>
-                                <DataGridTextColumn Header="Автомобиль" Binding="{Binding Car}"/>
-                                <DataGridTextColumn Header="Время" Binding="{Binding LapTime}"/>
-                                <DataGridTextColumn Header="Дата" Binding="{Binding DrivenAt, StringFormat=dd.MM.yyyy HH:mm}"/>
-                            </DataGrid.Columns>
-                        </DataGrid>
-                        <TextBlock x:Name="HistoryStatus" Margin="0,12,0,0" TextWrapping="Wrap"/>
-                    </StackPanel>
-                </Grid>
-            </StackPanel>
-        </ScrollViewer>
-        <ScrollViewer x:Name="ResultsPanel" Visibility="Collapsed" VerticalScrollBarVisibility="Auto">
-            <StackPanel Margin="28">
-                                <DockPanel Visibility="{Binding ElementName=ResultTools, Path=Visibility}" Margin="0,0,0,24">
-                    <Button DockPanel.Dock="Right" VerticalAlignment="Center" x:Name="AddResult" Style="{StaticResource PrimaryAction}" Content="Добавить результат" Click="EditResult" Padding="12,6"/>
-                    <StackPanel><TextBlock Text="Результаты заездов" FontSize="24" FontWeight="SemiBold"/><TextBlock Text="Внесение и исправление результатов пилотов." Margin="0,7,0,0" Foreground="{StaticResource Muted}"/></StackPanel>
-                </DockPanel>
-                <DockPanel Visibility="{Binding ElementName=TrackTools, Path=Visibility}" Margin="0,0,0,24">
-                    <Button DockPanel.Dock="Right" VerticalAlignment="Center" x:Name="AddTrack" Style="{StaticResource PrimaryAction}" Content="Добавить" Click="EditTrack" Padding="12,6"/>
-                    <StackPanel><TextBlock Text="Справочники" FontSize="24" FontWeight="SemiBold"/><TextBlock Text="Трассы, конфигурации и автомобили клуба." Margin="0,7,0,0" Foreground="{StaticResource Muted}"/></StackPanel>
-                </DockPanel>
-                <DockPanel Visibility="{Binding ElementName=ConfigTools, Path=Visibility}" Margin="0,0,0,24">
-                    <Button DockPanel.Dock="Right" VerticalAlignment="Center" x:Name="AddConfig" Style="{StaticResource PrimaryAction}" Content="Добавить" Click="EditConfiguration" Padding="12,6"/>
-                    <StackPanel><TextBlock Text="Справочники" FontSize="24" FontWeight="SemiBold"/><TextBlock Text="Трассы, конфигурации и автомобили клуба." Margin="0,7,0,0" Foreground="{StaticResource Muted}"/></StackPanel>
-                </DockPanel>
-                <DockPanel Visibility="{Binding ElementName=CarTools, Path=Visibility}" Margin="0,0,0,24">
-                    <Button DockPanel.Dock="Right" VerticalAlignment="Center" x:Name="AddCar" Style="{StaticResource PrimaryAction}" Content="Добавить" Click="EditCar" Padding="12,6"/>
-                    <StackPanel><TextBlock Text="Справочники" FontSize="24" FontWeight="SemiBold"/><TextBlock Text="Трассы, конфигурации и автомобили клуба." Margin="0,7,0,0" Foreground="{StaticResource Muted}"/></StackPanel>
-                </DockPanel>
-                <DockPanel Visibility="{Binding ElementName=UsersPanel, Path=Visibility}" Margin="0,0,0,24">
-                    
-                    <StackPanel><TextBlock Text="Пользователи" FontSize="24" FontWeight="SemiBold"/><TextBlock Text="Управление учётными записями и ролями." Margin="0,7,0,0" Foreground="{StaticResource Muted}"/></StackPanel>
-                </DockPanel>
-                <WrapPanel Margin="0,0,0,22"><Button Content="Результаты" Click="Results_Click"/><Button Content="Справочники" Click="Tracks_Click" Margin="8,0"/><Button x:Name="UsersTab" Content="Пользователи" Click="Users_Click" Visibility="Collapsed"/></WrapPanel>
-                <StackPanel x:Name="ResultTools">
-                    
-                    <Grid Margin="0,0,0,20"><Grid.ColumnDefinitions><ColumnDefinition/><ColumnDefinition/><ColumnDefinition/><ColumnDefinition Width="Auto"/></Grid.ColumnDefinitions>
-                        <StackPanel Grid.Column="0" Margin="0,0,14,0"><TextBlock Text="Трасса"/><ComboBox x:Name="FilterTrack" SelectionChanged="FilterTrackChanged" Height="38" Margin="0,6,0,0"/></StackPanel>
-                        <StackPanel Grid.Column="1" Margin="0,0,14,0"><TextBlock Text="Конфигурация"/><ComboBox x:Name="FilterLayout" DisplayMemberPath="Label" Height="38" Margin="0,6,0,0"/></StackPanel>
-                        <StackPanel Grid.Column="2" Margin="0,0,14,0"><TextBlock Text="Автомобиль"/><ComboBox x:Name="FilterCar" DisplayMemberPath="Label" Height="38" Margin="0,6,0,0"/></StackPanel>
-                        <Button Grid.Column="3" Content="Показать" Click="FilterResults" Height="38" VerticalAlignment="Bottom"/>
-                    </Grid>
-                    <DataGrid x:Name="ResultsGrid" MaxHeight="260" AutoGenerateColumns="False" IsReadOnly="True" SelectionMode="Single" CanUserAddRows="False" HeadersVisibility="Column">
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Header="Пилот" Binding="{Binding Pilot}"/>
-                        <DataGridTextColumn Header="Трасса / конфигурация" Binding="{Binding Circuit}"/>
-                        <DataGridTextColumn Header="Автомобиль" Binding="{Binding Car}"/>
-                        <DataGridTextColumn Header="Время" Binding="{Binding Time}"/>
-                        
-                    <DataGridTemplateColumn Header="Действия"><DataGridTemplateColumn.CellTemplate><DataTemplate><StackPanel Orientation="Horizontal"><Button Content="Изменить" Click="EditResult" Style="{StaticResource RowAction}"/><Button Content="Удалить" Click="DeleteResult" Style="{StaticResource RowAction}"/></StackPanel></DataTemplate></DataGridTemplateColumn.CellTemplate></DataGridTemplateColumn>
-                        </DataGrid.Columns>
-                </DataGrid>
-                <Border x:Name="ResultEditor" Visibility="Collapsed" Background="{StaticResource Panel}" BorderBrush="{StaticResource Line}" BorderThickness="1" CornerRadius="8" Padding="20" Margin="0,20,0,0"><StackPanel>
-                    <TextBlock x:Name="EditorTitle" FontSize="17" FontWeight="SemiBold"/>
-                    <UniformGrid Columns="3" Rows="2">
-                        <StackPanel Margin="0,8,10,0"><TextBlock Text="Пилот"/><ComboBox x:Name="PilotBox" ItemsSource="{Binding Pilots}" SelectedValuePath="Id" DisplayMemberPath="Label"/></StackPanel>
-                        <StackPanel Margin="0,8,10,0"><TextBlock Text="Трасса"/><ComboBox x:Name="EditTrackBox" SelectionChanged="EditTrackChanged"/></StackPanel>
-                        <StackPanel Margin="0,8,10,0"><TextBlock Text="Конфигурация"/><ComboBox x:Name="CircuitBox" SelectedValuePath="Id" DisplayMemberPath="Name"/></StackPanel>
-                        <StackPanel Margin="0,8,10,0"><TextBlock Text="Автомобиль"/><ComboBox x:Name="CarBox" ItemsSource="{Binding Cars}" SelectedValuePath="Id" DisplayMemberPath="Label"/></StackPanel>
-                        <StackPanel Margin="0,8,10,0"><TextBlock Text="Время круга (1:31.300)"/><TextBox x:Name="LapInput"/></StackPanel>
-                        <StackPanel Margin="0,8,10,0"><TextBlock Text="Дата и время заезда"/><TextBox x:Name="DateInput"/></StackPanel>
-                    </UniformGrid>
-                    <StackPanel Orientation="Horizontal" Margin="0,12"><Button Style="{StaticResource PrimaryAction}" Content="Сохранить" Click="SaveResult" Padding="12,6"/><Button Content="Отмена" Click="CancelResult" Margin="8,0" Padding="12,6"/></StackPanel>
-                </StackPanel></Border>
+          </StackPanel>
+          <StackPanel x:Name="TrackTools" Visibility="Collapsed">
+            <WrapPanel Margin="0,0,0,22">
+              <Button
+                Background="{StaticResource Soft}"
+                FontWeight="SemiBold"
+                Content="Трассы"
+                Click="Tracks_Click"
+              />
+              <Button Content="Конфигурации" Click="Configurations_Click" Margin="8,0" />
+              <Button Content="Автомобили" Click="Cars_Click" />
+            </WrapPanel>
+            <DataGrid
+              x:Name="TrackGrid"
+              MaxHeight="260"
+              AutoGenerateColumns="False"
+              HeadersVisibility="Column"
+              IsReadOnly="True"
+              SelectionMode="Single"
+              CanUserAddRows="False"
+            >
+              <DataGrid.Columns>
+                <DataGridTextColumn Header="Название трассы" Binding="{Binding Label}" Width="*" />
+                <DataGridTemplateColumn Header="Действия">
+                  <DataGridTemplateColumn.CellTemplate>
+                    <DataTemplate>
+                      <StackPanel Orientation="Horizontal">
+                        <Button
+                          Content="Изменить"
+                          Click="EditTrack"
+                          Style="{StaticResource RowAction}"
+                        />
+                        <Button
+                          Content="Удалить"
+                          Click="DeleteTrack"
+                          Style="{StaticResource RowAction}"
+                        />
+                      </StackPanel>
+                    </DataTemplate>
+                  </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+              </DataGrid.Columns>
+            </DataGrid>
+            <Border
+              x:Name="TrackEditor"
+              Visibility="Collapsed"
+              Background="{StaticResource Panel}"
+              BorderBrush="{StaticResource Line}"
+              BorderThickness="1"
+              CornerRadius="8"
+              Padding="20"
+              Margin="0,20,0,0"
+            >
+              <StackPanel>
+                <TextBlock
+                  x:Name="TrackEditorTitle"
+                  FontSize="16"
+                  FontWeight="SemiBold"
+                  Margin="0,0,0,16"
+                />
+                <UniformGrid Columns="3" Rows="1">
+                  <StackPanel Margin="0,0,16,0">
+                    <TextBlock Text="Название" />
+                    <TextBox x:Name="TrackName" MaxLength="30" Padding="6" />
+                  </StackPanel>
+                </UniformGrid>
+                <StackPanel Orientation="Horizontal" Margin="0,8">
+                  <Button
+                    Style="{StaticResource PrimaryAction}"
+                    Content="Сохранить"
+                    Click="SaveTrack"
+                    Padding="12,6"
+                  />
+                  <Button Content="Отмена" Click="CancelTrack" Padding="12,6" Margin="8,0" />
                 </StackPanel>
-                <StackPanel x:Name="TrackTools" Visibility="Collapsed">
-                    <WrapPanel Margin="0,0,0,22"><Button Background="{StaticResource Soft}" FontWeight="SemiBold" Content="Трассы" Click="Tracks_Click"/><Button Content="Конфигурации" Click="Configurations_Click" Margin="8,0"/><Button Content="Автомобили" Click="Cars_Click"/></WrapPanel>
-                    <DataGrid x:Name="TrackGrid" MaxHeight="260" AutoGenerateColumns="False" HeadersVisibility="Column" IsReadOnly="True" SelectionMode="Single" CanUserAddRows="False">
-                        <DataGrid.Columns><DataGridTextColumn Header="Название трассы" Binding="{Binding Label}" Width="*"/><DataGridTemplateColumn Header="Действия"><DataGridTemplateColumn.CellTemplate><DataTemplate><StackPanel Orientation="Horizontal"><Button Content="Изменить" Click="EditTrack" Style="{StaticResource RowAction}"/><Button Content="Удалить" Click="DeleteTrack" Style="{StaticResource RowAction}"/></StackPanel></DataTemplate></DataGridTemplateColumn.CellTemplate></DataGridTemplateColumn>
-                        </DataGrid.Columns>
-                    </DataGrid>
-                    <Border x:Name="TrackEditor" Visibility="Collapsed" Background="{StaticResource Panel}" BorderBrush="{StaticResource Line}" BorderThickness="1" CornerRadius="8" Padding="20" Margin="0,20,0,0"><StackPanel><TextBlock x:Name="TrackEditorTitle" FontSize="16" FontWeight="SemiBold" Margin="0,0,0,16"/>
-                        <UniformGrid Columns="3" Rows="1"><StackPanel Margin="0,0,16,0"><TextBlock Text="Название"/><TextBox x:Name="TrackName" MaxLength="30" Padding="6"/></StackPanel></UniformGrid>
-                        <StackPanel Orientation="Horizontal" Margin="0,8">
-                            <Button Style="{StaticResource PrimaryAction}" Content="Сохранить" Click="SaveTrack" Padding="12,6"/>
-                            <Button Content="Отмена" Click="CancelTrack" Padding="12,6" Margin="8,0"/>
-                        </StackPanel>
-                    </StackPanel></Border>
-                </StackPanel>
-                <StackPanel x:Name="CarTools" Visibility="Collapsed">
-                    <WrapPanel Margin="0,0,0,22"><Button Content="Трассы" Click="Tracks_Click"/><Button Content="Конфигурации" Click="Configurations_Click" Margin="8,0"/><Button Background="{StaticResource Soft}" FontWeight="SemiBold" Content="Автомобили" Click="Cars_Click"/></WrapPanel>
-                    <DataGrid x:Name="CarGrid" MaxHeight="260" AutoGenerateColumns="False" HeadersVisibility="Column" IsReadOnly="True" SelectionMode="Single" CanUserAddRows="False">
-                        <DataGrid.Columns><DataGridTextColumn Header="Название автомобиля" Binding="{Binding Label}" Width="*"/><DataGridTemplateColumn Header="Действия"><DataGridTemplateColumn.CellTemplate><DataTemplate><StackPanel Orientation="Horizontal"><Button Content="Изменить" Click="EditCar" Style="{StaticResource RowAction}"/><Button Content="Удалить" Click="DeleteCar" Style="{StaticResource RowAction}"/></StackPanel></DataTemplate></DataGridTemplateColumn.CellTemplate></DataGridTemplateColumn>
-                        </DataGrid.Columns>
-                    </DataGrid>
-                    <Border x:Name="CarEditor" Visibility="Collapsed" Background="{StaticResource Panel}" BorderBrush="{StaticResource Line}" BorderThickness="1" CornerRadius="8" Padding="20" Margin="0,20,0,0"><StackPanel><TextBlock x:Name="CarEditorTitle" FontSize="16" FontWeight="SemiBold" Margin="0,0,0,16"/>
-                        <UniformGrid Columns="3" Rows="1"><StackPanel Margin="0,0,16,0"><TextBlock Text="Название"/><TextBox x:Name="CarName" MaxLength="30" Padding="6"/></StackPanel></UniformGrid>
-                        <StackPanel Orientation="Horizontal" Margin="0,8">
-                            <Button Style="{StaticResource PrimaryAction}" Content="Сохранить" Click="SaveCar" Padding="12,6"/>
-                            <Button Content="Отмена" Click="CancelCar" Padding="12,6" Margin="8,0"/>
-                        </StackPanel>
-                    </StackPanel></Border>
-                </StackPanel>
-                <StackPanel x:Name="ConfigTools" Visibility="Collapsed">
-                    <WrapPanel Margin="0,0,0,22"><Button Content="Трассы" Click="Tracks_Click"/><Button Background="{StaticResource Soft}" FontWeight="SemiBold" Content="Конфигурации" Click="Configurations_Click" Margin="8,0"/><Button Content="Автомобили" Click="Cars_Click"/></WrapPanel>
-                    <DataGrid x:Name="ConfigGrid" MaxHeight="260" AutoGenerateColumns="False" HeadersVisibility="Column" IsReadOnly="True" SelectionMode="Single" CanUserAddRows="False">
-                        <DataGrid.Columns>
-                            <DataGridTextColumn Header="Название" Binding="{Binding Name}" Width="*"/>
-                            <DataGridTextColumn Header="Трасса" Binding="{Binding Track}" Width="*"/>
-                        <DataGridTemplateColumn Header="Действия"><DataGridTemplateColumn.CellTemplate><DataTemplate><StackPanel Orientation="Horizontal"><Button Content="Изменить" Click="EditConfiguration" Style="{StaticResource RowAction}"/><Button Content="Удалить" Click="DeleteConfiguration" Style="{StaticResource RowAction}"/></StackPanel></DataTemplate></DataGridTemplateColumn.CellTemplate></DataGridTemplateColumn>
-                        </DataGrid.Columns>
-                    </DataGrid>
-                    <Border x:Name="ConfigEditor" Visibility="Collapsed" Background="{StaticResource Panel}" BorderBrush="{StaticResource Line}" BorderThickness="1" CornerRadius="8" Padding="20" Margin="0,20,0,0"><StackPanel><TextBlock x:Name="ConfigEditorTitle" FontSize="16" FontWeight="SemiBold" Margin="0,0,0,16"/>
-                        <UniformGrid Columns="3" Rows="1"><StackPanel Margin="0,0,16,0"><TextBlock Text="Название"/><TextBox x:Name="ConfigName" MaxLength="30" Padding="6"/></StackPanel><StackPanel Margin="0,0,16,0">
-                        <TextBlock Text="Трасса" /><ComboBox x:Name="ParentTrack" SelectedValuePath="Id" DisplayMemberPath="Label"/></StackPanel></UniformGrid>
-                        <StackPanel Orientation="Horizontal" Margin="0,8">
-                            <Button Style="{StaticResource PrimaryAction}" Content="Сохранить" Click="SaveConfiguration" Padding="12,6"/>
-                            <Button Content="Отмена" Click="CancelConfiguration" Margin="8,0"/>
-                        </StackPanel>
-                    </StackPanel></Border>
-                </StackPanel>
-                <StackPanel x:Name="UsersPanel" Visibility="Collapsed">
-                    
-                    <DataGrid x:Name="UsersGrid" ItemsSource="{Binding Users}" MaxHeight="260" IsReadOnly="True" AutoGenerateColumns="False" SelectionMode="Single" HeadersVisibility="Column">
-                        <DataGrid.Columns>
-                            <DataGridTextColumn Header="Имя и фамилия" Width="2*"><DataGridTextColumn.Binding><MultiBinding StringFormat="{}{0} {1}"><Binding Path="FirstName"/><Binding Path="Surname"/></MultiBinding></DataGridTextColumn.Binding></DataGridTextColumn>
-                            <DataGridTextColumn Header="Логин" Binding="{Binding Login}" Width="*"/>
-                            <DataGridTextColumn Header="Роль" Binding="{Binding Role}" Width="*"/>
-                        <DataGridTemplateColumn Header="Действия"><DataGridTemplateColumn.CellTemplate><DataTemplate><StackPanel Orientation="Horizontal"><Button Content="Изменить" Click="EditUser" Style="{StaticResource RowAction}"/></StackPanel></DataTemplate></DataGridTemplateColumn.CellTemplate></DataGridTemplateColumn>
-                        </DataGrid.Columns>
-                    </DataGrid>
-                    <Border x:Name="UserEditor" Visibility="Collapsed" Background="{StaticResource Panel}" BorderBrush="{StaticResource Line}" BorderThickness="1" CornerRadius="8" Padding="20" Margin="0,20,0,0"><StackPanel>
-                        <TextBlock x:Name="UserEditorTitle" FontWeight="SemiBold"/>
-                        <UniformGrid Rows="1" Columns="3">
-                            <StackPanel Margin="0,8,8,0"><TextBlock Text="Имя"/><TextBox x:Name="UserFirstName" MaxLength="20"/></StackPanel>
-                            <StackPanel Margin="0,8,8,0"><TextBlock Text="Фамилия"/><TextBox x:Name="UserSurname" MaxLength="100"/></StackPanel>
-                            <StackPanel Margin="0,8,0,0"><TextBlock Text="Роль"/><ComboBox x:Name="UserRoleBox" ItemsSource="{Binding Roles}" DisplayMemberPath="Name" SelectedValuePath="Id"/></StackPanel>
-                        </UniformGrid>
-                        <StackPanel Orientation="Horizontal" Margin="0,8"><Button Style="{StaticResource PrimaryAction}" Content="Сохранить" Click="SaveUser" Padding="12,6"/><Button Content="Отмена" Click="CancelUser" Padding="12,6" Margin="8,0"/></StackPanel>
-                    </StackPanel></Border>
-                </StackPanel>
-                <TextBlock x:Name="ResultStatus" TextWrapping="Wrap" Margin="0,8"/>
-            </StackPanel>
-        </ScrollViewer>
-        <ScrollViewer x:Name="Auth" Visibility="Collapsed" VerticalScrollBarVisibility="Auto">
-            <Border Width="390" Margin="0,24" Padding="26" Background="{StaticResource Panel}" BorderBrush="{StaticResource Line}" BorderThickness="1" CornerRadius="10" VerticalAlignment="Top">
-                <StackPanel>
-                    <TextBlock x:Name="AuthTitle" FontSize="23" FontWeight="SemiBold" Margin="0,0,0,7"/>
-                    <TextBlock x:Name="AuthSubtitle" Foreground="{StaticResource Muted}" Margin="0,0,0,23"/>
-                    <UniformGrid x:Name="Names" Rows="1" Columns="2">
-                        <StackPanel Margin="0,0,6,10"><TextBlock Text="Имя"/><TextBox Padding="6" MaxLength="20" Text="{Binding FirstName, UpdateSourceTrigger=PropertyChanged}"/></StackPanel>
-                        <StackPanel Margin="0,0,6,10"><TextBlock Text="Фамилия"/><TextBox Padding="6" MaxLength="100" Text="{Binding Surname, UpdateSourceTrigger=PropertyChanged}"/></StackPanel>
-                    </UniformGrid>
-                    <TextBlock Text="Логин"/><TextBox x:Name="LoginField" Padding="6" MaxLength="20" Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}"/>
-                    <TextBlock Text="Пароль" Margin="0,12,0,0"/><PasswordBox x:Name="Secret" Padding="6" MaxLength="128"/>
-                    <StackPanel x:Name="Repeat" Margin="0,12,0,0"><TextBlock Text="Повторите пароль"/><PasswordBox x:Name="Confirmation" Padding="6" MaxLength="128"/></StackPanel>
-                    <Button x:Name="Submit" IsDefault="True" Click="Submit_Click" Padding="10" Background="{StaticResource Accent}" Foreground="{StaticResource Panel}"/>
-                    <TextBlock x:Name="Feedback" TextWrapping="Wrap" Margin="0,8"/>
-                    <Button Background="Transparent" BorderThickness="0" x:Name="SwitchForm" Click="Switch_Click" Padding="8" Margin="0,8,0,0"/>
-                </StackPanel>
+              </StackPanel>
             </Border>
-        </ScrollViewer>
-        </Grid>
-    </DockPanel>
+          </StackPanel>
+          <StackPanel x:Name="CarTools" Visibility="Collapsed">
+            <WrapPanel Margin="0,0,0,22">
+              <Button Content="Трассы" Click="Tracks_Click" />
+              <Button Content="Конфигурации" Click="Configurations_Click" Margin="8,0" />
+              <Button
+                Background="{StaticResource Soft}"
+                FontWeight="SemiBold"
+                Content="Автомобили"
+                Click="Cars_Click"
+              />
+            </WrapPanel>
+            <DataGrid
+              x:Name="CarGrid"
+              MaxHeight="260"
+              AutoGenerateColumns="False"
+              HeadersVisibility="Column"
+              IsReadOnly="True"
+              SelectionMode="Single"
+              CanUserAddRows="False"
+            >
+              <DataGrid.Columns>
+                <DataGridTextColumn
+                  Header="Название автомобиля"
+                  Binding="{Binding Label}"
+                  Width="*"
+                />
+                <DataGridTemplateColumn Header="Действия">
+                  <DataGridTemplateColumn.CellTemplate>
+                    <DataTemplate>
+                      <StackPanel Orientation="Horizontal">
+                        <Button
+                          Content="Изменить"
+                          Click="EditCar"
+                          Style="{StaticResource RowAction}"
+                        />
+                        <Button
+                          Content="Удалить"
+                          Click="DeleteCar"
+                          Style="{StaticResource RowAction}"
+                        />
+                      </StackPanel>
+                    </DataTemplate>
+                  </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+              </DataGrid.Columns>
+            </DataGrid>
+            <Border
+              x:Name="CarEditor"
+              Visibility="Collapsed"
+              Background="{StaticResource Panel}"
+              BorderBrush="{StaticResource Line}"
+              BorderThickness="1"
+              CornerRadius="8"
+              Padding="20"
+              Margin="0,20,0,0"
+            >
+              <StackPanel>
+                <TextBlock
+                  x:Name="CarEditorTitle"
+                  FontSize="16"
+                  FontWeight="SemiBold"
+                  Margin="0,0,0,16"
+                />
+                <UniformGrid Columns="3" Rows="1">
+                  <StackPanel Margin="0,0,16,0">
+                    <TextBlock Text="Название" />
+                    <TextBox x:Name="CarName" MaxLength="30" Padding="6" />
+                  </StackPanel>
+                </UniformGrid>
+                <StackPanel Orientation="Horizontal" Margin="0,8">
+                  <Button
+                    Style="{StaticResource PrimaryAction}"
+                    Content="Сохранить"
+                    Click="SaveCar"
+                    Padding="12,6"
+                  />
+                  <Button Content="Отмена" Click="CancelCar" Padding="12,6" Margin="8,0" />
+                </StackPanel>
+              </StackPanel>
+            </Border>
+          </StackPanel>
+          <StackPanel x:Name="ConfigTools" Visibility="Collapsed">
+            <WrapPanel Margin="0,0,0,22">
+              <Button Content="Трассы" Click="Tracks_Click" />
+              <Button
+                Background="{StaticResource Soft}"
+                FontWeight="SemiBold"
+                Content="Конфигурации"
+                Click="Configurations_Click"
+                Margin="8,0"
+              />
+              <Button Content="Автомобили" Click="Cars_Click" />
+            </WrapPanel>
+            <DataGrid
+              x:Name="ConfigGrid"
+              MaxHeight="260"
+              AutoGenerateColumns="False"
+              HeadersVisibility="Column"
+              IsReadOnly="True"
+              SelectionMode="Single"
+              CanUserAddRows="False"
+            >
+              <DataGrid.Columns>
+                <DataGridTextColumn Header="Название" Binding="{Binding Name}" Width="*" />
+                <DataGridTextColumn Header="Трасса" Binding="{Binding Track}" Width="*" />
+                <DataGridTemplateColumn Header="Действия">
+                  <DataGridTemplateColumn.CellTemplate>
+                    <DataTemplate>
+                      <StackPanel Orientation="Horizontal">
+                        <Button
+                          Content="Изменить"
+                          Click="EditConfiguration"
+                          Style="{StaticResource RowAction}"
+                        />
+                        <Button
+                          Content="Удалить"
+                          Click="DeleteConfiguration"
+                          Style="{StaticResource RowAction}"
+                        />
+                      </StackPanel>
+                    </DataTemplate>
+                  </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+              </DataGrid.Columns>
+            </DataGrid>
+            <Border
+              x:Name="ConfigEditor"
+              Visibility="Collapsed"
+              Background="{StaticResource Panel}"
+              BorderBrush="{StaticResource Line}"
+              BorderThickness="1"
+              CornerRadius="8"
+              Padding="20"
+              Margin="0,20,0,0"
+            >
+              <StackPanel>
+                <TextBlock
+                  x:Name="ConfigEditorTitle"
+                  FontSize="16"
+                  FontWeight="SemiBold"
+                  Margin="0,0,0,16"
+                />
+                <UniformGrid Columns="3" Rows="1">
+                  <StackPanel Margin="0,0,16,0">
+                    <TextBlock Text="Название" />
+                    <TextBox x:Name="ConfigName" MaxLength="30" Padding="6" />
+                  </StackPanel>
+                  <StackPanel Margin="0,0,16,0">
+                    <TextBlock Text="Трасса" />
+                    <ComboBox
+                      x:Name="ParentTrack"
+                      SelectedValuePath="Id"
+                      DisplayMemberPath="Label"
+                    />
+                  </StackPanel>
+                </UniformGrid>
+                <StackPanel Orientation="Horizontal" Margin="0,8">
+                  <Button
+                    Style="{StaticResource PrimaryAction}"
+                    Content="Сохранить"
+                    Click="SaveConfiguration"
+                    Padding="12,6"
+                  />
+                  <Button Content="Отмена" Click="CancelConfiguration" Margin="8,0" />
+                </StackPanel>
+              </StackPanel>
+            </Border>
+          </StackPanel>
+          <StackPanel x:Name="UsersPanel" Visibility="Collapsed">
+            <DataGrid
+              x:Name="UsersGrid"
+              ItemsSource="{Binding Users}"
+              MaxHeight="260"
+              IsReadOnly="True"
+              AutoGenerateColumns="False"
+              SelectionMode="Single"
+              HeadersVisibility="Column"
+            >
+              <DataGrid.Columns>
+                <DataGridTextColumn Header="Имя и фамилия" Width="2*">
+                  <DataGridTextColumn.Binding>
+                    <MultiBinding StringFormat="{}{0} {1}">
+                      <Binding Path="FirstName" />
+                      <Binding Path="Surname" />
+                    </MultiBinding>
+                  </DataGridTextColumn.Binding>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Логин" Binding="{Binding Login}" Width="*" />
+                <DataGridTextColumn Header="Роль" Binding="{Binding Role}" Width="*" />
+                <DataGridTemplateColumn Header="Действия">
+                  <DataGridTemplateColumn.CellTemplate>
+                    <DataTemplate>
+                      <StackPanel Orientation="Horizontal">
+                        <Button
+                          Content="Изменить"
+                          Click="EditUser"
+                          Style="{StaticResource RowAction}"
+                        />
+                      </StackPanel>
+                    </DataTemplate>
+                  </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+              </DataGrid.Columns>
+            </DataGrid>
+            <Border
+              x:Name="UserEditor"
+              Visibility="Collapsed"
+              Background="{StaticResource Panel}"
+              BorderBrush="{StaticResource Line}"
+              BorderThickness="1"
+              CornerRadius="8"
+              Padding="20"
+              Margin="0,20,0,0"
+            >
+              <StackPanel>
+                <TextBlock x:Name="UserEditorTitle" FontWeight="SemiBold" />
+                <UniformGrid Rows="1" Columns="3">
+                  <StackPanel Margin="0,8,8,0">
+                    <TextBlock Text="Имя" />
+                    <TextBox x:Name="UserFirstName" MaxLength="20" />
+                  </StackPanel>
+                  <StackPanel Margin="0,8,8,0">
+                    <TextBlock Text="Фамилия" />
+                    <TextBox x:Name="UserSurname" MaxLength="100" />
+                  </StackPanel>
+                  <StackPanel Margin="0,8,0,0">
+                    <TextBlock Text="Роль" />
+                    <ComboBox
+                      x:Name="UserRoleBox"
+                      ItemsSource="{Binding Roles}"
+                      DisplayMemberPath="Name"
+                      SelectedValuePath="Id"
+                    />
+                  </StackPanel>
+                </UniformGrid>
+                <StackPanel Orientation="Horizontal" Margin="0,8">
+                  <Button
+                    Style="{StaticResource PrimaryAction}"
+                    Content="Сохранить"
+                    Click="SaveUser"
+                    Padding="12,6"
+                  />
+                  <Button Content="Отмена" Click="CancelUser" Padding="12,6" Margin="8,0" />
+                </StackPanel>
+              </StackPanel>
+            </Border>
+          </StackPanel>
+          <TextBlock x:Name="ResultStatus" TextWrapping="Wrap" Margin="0,8" />
+        </StackPanel>
+      </ScrollViewer>
+      <ScrollViewer x:Name="Auth" Visibility="Collapsed" VerticalScrollBarVisibility="Auto">
+        <Border
+          Width="390"
+          Margin="0,24"
+          Padding="26"
+          Background="{StaticResource Panel}"
+          BorderBrush="{StaticResource Line}"
+          BorderThickness="1"
+          CornerRadius="10"
+          VerticalAlignment="Top"
+        >
+          <StackPanel>
+            <TextBlock x:Name="AuthTitle" FontSize="23" FontWeight="SemiBold" Margin="0,0,0,7" />
+            <TextBlock
+              x:Name="AuthSubtitle"
+              Foreground="{StaticResource Muted}"
+              Margin="0,0,0,23"
+            />
+            <UniformGrid x:Name="Names" Rows="1" Columns="2">
+              <StackPanel Margin="0,0,6,10">
+                <TextBlock Text="Имя" />
+                <TextBox
+                  Padding="6"
+                  MaxLength="20"
+                  Text="{Binding FirstName, UpdateSourceTrigger=PropertyChanged}"
+                />
+              </StackPanel>
+              <StackPanel Margin="0,0,6,10">
+                <TextBlock Text="Фамилия" />
+                <TextBox
+                  Padding="6"
+                  MaxLength="100"
+                  Text="{Binding Surname, UpdateSourceTrigger=PropertyChanged}"
+                />
+              </StackPanel>
+            </UniformGrid>
+            <TextBlock Text="Логин" />
+            <TextBox
+              x:Name="LoginField"
+              Padding="6"
+              MaxLength="20"
+              Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}"
+            />
+            <TextBlock Text="Пароль" Margin="0,12,0,0" />
+            <PasswordBox x:Name="Secret" Padding="6" MaxLength="128" />
+            <StackPanel x:Name="Repeat" Margin="0,12,0,0">
+              <TextBlock Text="Повторите пароль" />
+              <PasswordBox x:Name="Confirmation" Padding="6" MaxLength="128" />
+            </StackPanel>
+            <Button
+              x:Name="Submit"
+              IsDefault="True"
+              Click="Submit_Click"
+              Padding="10"
+              Background="{StaticResource Accent}"
+              Foreground="{StaticResource Panel}"
+            />
+            <TextBlock x:Name="Feedback" TextWrapping="Wrap" Margin="0,8" />
+            <Button
+              Background="Transparent"
+              BorderThickness="0"
+              x:Name="SwitchForm"
+              Click="Switch_Click"
+              Padding="8"
+              Margin="0,8,0,0"
+            />
+          </StackPanel>
+        </Border>
+      </ScrollViewer>
+    </Grid>
+  </DockPanel>
 </Window>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

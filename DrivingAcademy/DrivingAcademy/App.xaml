@@ -1,0 +1,23 @@
+<Application x:Class="DrivingAcademy.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:DrivingAcademy"
+             ThemeMode="Light" StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Styles/Controls.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        <FontFamily x:Key="AppFont">Segoe UI</FontFamily>
+        <SolidColorBrush x:Key="Page" Color="#F6F7F9"/>
+        <SolidColorBrush x:Key="Panel" Color="#FFFFFF"/>
+        <SolidColorBrush x:Key="Ink" Color="#20242B"/>
+        <SolidColorBrush x:Key="Accent" Color="#303741"/>
+        <SolidColorBrush x:Key="Line" Color="#DFE3E9"/>
+        <SolidColorBrush x:Key="Muted" Color="#646C78"/>
+        <SolidColorBrush x:Key="Soft" Color="#EEF0F4"/>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
+
+
